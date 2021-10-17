@@ -1,1 +1,11 @@
-theme: jekyll-theme-cayman
+remote_theme: tuur29/pages-themes-cayman
+
+title: [IA-e docs]
+description: [Documentação da API v1.0 do site IA-e]
+colors:
+    gradient_left: "#9E788F"
+    gradient_right: "#2D0623"
+    header: "#7cdedc"
+    android_theme: "#000" # this default to gradient_color
+    link: "#1e6bb8" # this default to gradient_color
+    section_title: "#155799" # this default to gradient_color
