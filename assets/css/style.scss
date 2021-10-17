@@ -1,7 +1,12 @@
----
----
-
 @import "{{ site.theme }}";
+@import "variables";
+
+.page-header {
+    color: $body-link-color;
+    text-align: center;
+    background-color: aqua;
+}
+
 .main-content {
     h1 {
      color: #ff0000;
