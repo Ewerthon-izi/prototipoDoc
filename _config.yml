@@ -1,11 +1,16 @@
+title: Custom Cayman theme
+description: Cayman is a clean, responsive theme for GitHub Pages.
+show_downloads: true
 remote_theme: tuur29/pages-themes-cayman
-
-title: [IA-e docs]
-description: [Documentação da API v1.0 do site IA-e]
-colors:
-    gradient_left: "#9E788F"
-    gradient_right: "#2D0623"
-    header: "#7cdedc"
-    android_theme: "#000" # this default to gradient_color
-    link: "#1e6bb8" # this default to gradient_color
-    section_title: "#155799" # this default to gradient_color
+color:
+  header: "#000"
+  gradient_left: "#e53935"
+  gradient_right: "#f57c00"
+logo_url: https://github.githubassets.com/images/icons/emoji/octocat.png
+syntax_theme: https://stylishthemes.github.io/Syntax-Themes/pygments/css-github/pygments-monokai.css
+buttons:
+  zip_url: https://github.com/tuur29/pages-themes-cayman
+  zip_title: View Documentation
+  zip_hide: false
+  tar_hide: true
+  github_hide: true
