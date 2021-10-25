@@ -107,7 +107,7 @@ pre{
     bottom: 0;
     width: 300px;
     box-sizing: border-box;
-    background-color: #f4f5f8;
+    background-image: linear-gradient(#a9b3ce 50%, #9e788f 100%);
     overflow-x: hidden;
     font-size: 18px;
 }
