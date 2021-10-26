@@ -169,13 +169,13 @@ Result example :
   ]
 }
                 </code></pre>
-            <h4>Parametros requisitados</h4>
+            <h4>Parametros requisitados obrigatoriamente</h4>
             <table class="central-overflow-x">
                 <thead>
                 <tr>
-                    <th>url</th>
-                    <th>String</th>
-                    <th>url respectiva a devida operação</th>
+                    <th>Variaveis</th>
+                    <th>Tipo</th>
+                    <th>Descrição</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -190,76 +190,44 @@ Result example :
                     <td>Chave de acesso oferecida na lista de perfil de bots em seu perfil</td>
                 </tr>
                 <tr>
-                    <td></td>
+                    <td>url</td>
                     <td>String</td>
                     <td>
-                        (optional) Texto us:
+                        url respectiva a sua operação(consultar os metodos)
                     </td>
-                </tr>
-                <tr>
-                    <td>alive</td>
-                    <td>Boolean</td>
-                    <td>
-                        (optional) a boolean to filter alived characters
-                    </td>
-                </tr>
-                <tr>
-                    <td>gender</td>
-                    <td>String</td>
-                    <td>
-                        (optional) a string to filter character by gender:<br>
-                        m: male<br>
-                        f: female
-                    </td>
-                </tr>
-                <tr>
-                    <td>offset</td>
-                    <td>Integer</td>
-                    <td>(optional - default: 0) A cursor for use in pagination. Pagination starts offset the specified offset.</td>
-                </tr>
-                <tr>
-                    <td>limit</td>
-                    <td>Integer</td>
-                    <td>(optional - default: 10) A limit on the number of objects to be returned, between 1 and 100.</td>
                 </tr>
                 </tbody>
             </table>
         </div>
         <div class="overflow-hidden content-section" id="content-errors">
-            <h2>Errors</h2>
+            <h2>Erros</h2>
             <p>
-                The Westeros API uses the following error codes:
+                Erros possiveis que podem ocorrer na requisição:
             </p>
             <table>
                 <thead>
                 <tr>
-                    <th>Error Code</th>
-                    <th>Meaning</th>
+                    <th>Codigo do erro</th>
+                    <th>Possivel causa</th>
                 </tr>
                 </thead>
                 <tbody>
                 <tr>
-                    <td>X000</td>
+                    <td>400 bad request</td>
                     <td>
-                        Some parameters are missing. This error appears when you don't pass every mandatory parameters.
+                        Algum parametro passado está incorreto, pode ser erro de sintaxe, corrompido, formato invalido, etc.
                     </td>
                 </tr>
                 <tr>
-                    <td>X001</td>
+                    <td>401</td>
                     <td>
-                        Unknown or unvalid <code class="higlighted">secret_key</code>. This error appears if you use an unknow API key or if your API key expired.
+                        Algum dos campos de autenticação estão incorretos( <code class="higlighted">api_secret</code>, <code class="higlighted">api_key</code>).
                     </td>
                 </tr>
                 <tr>
-                    <td>X002</td>
+                    <td>404</td>
                     <td>
-                        Unvalid <code class="higlighted">secret_key</code> for this domain. This error appears if you use an  API key non specified for your domain. Developper or Universal API keys doesn't have domain checker.
-                    </td>
-                </tr>
-                <tr>
-                    <td>X003</td>
-                    <td>
-                        Unknown or unvalid user <code class="higlighted">token</code>. This error appears if you use an unknow user <code class="higlighted">token</code> or if the user <code class="higlighted">token</code> expired.
+                        Possivelmente o campo <code class="higlighted">url</code> está incorreto.
                     </td>
                 </tr>
                 </tbody>
