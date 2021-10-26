@@ -170,16 +170,16 @@ pre{
 .content-menu ul li.active a{
     color: #00a8e3;
 }
-button-style {
+.button1{
     position: relative;
     text-align: center;
 }
 
-buttton.button-style {
+buttton.button1 {
     text-align: center;
 }
 
-a.button-style {
+a.button1{
     text-decoration: none;
     color: #777a7a;
     padding: 12px 13.25%;
@@ -187,11 +187,11 @@ a.button-style {
     margin: 0;
 }
 
-a.button-style:hover a, .button-style.active a {
+a.button1e:hover a, .button1.active a {
     color: #00a8e3;
 }
 
-a.button-style:hover, .button-style.active a {
+a.button1:hover, .button1.active a {
     background-color: #dcdee9;
     display: block;
     text-transform: capitalize;
