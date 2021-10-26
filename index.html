@@ -30,7 +30,7 @@
     <div class="content-logo">
         <div class="logo">
             <img alt="platform by Emily van den Heever from the Noun Project" title="platform by Emily van den Heever from the Noun Project" src="images/logo.png" height="32" />
-            <span>API Documentation</span>
+            <span>Documentação API</span>
         </div>
         <button class="burger-menu-icon" id="button-menu-mobile">
             <svg width="34" height="34" viewBox="0 0 100 100"><path class="line line1" d="M 20,29.000046 H 80.000231 C 80.000231,29.000046 94.498839,28.817352 94.532987,66.711331 94.543142,77.980673 90.966081,81.670246 85.259173,81.668997 79.552261,81.667751 75.000211,74.999942 75.000211,74.999942 L 25.000021,25.000058"></path><path class="line line2" d="M 20,50 H 80"></path><path class="line line3" d="M 20,70.999954 H 80.000231 C 80.000231,70.999954 94.498839,71.182648 94.532987,33.288669 94.543142,22.019327 90.966081,18.329754 85.259173,18.331003 79.552261,18.332249 75.000211,25.000058 75.000211,25.000058 L 25.000021,74.999942"></path></svg>
@@ -39,24 +39,20 @@
     <div class="mobile-menu-closer"></div>
     <div class="content-menu">
         <div class="content-infos">
-            <div class="info"><b>Version:</b> 1.0.5</div>
-            <div class="info"><b>Last Updated:</b> 15th Sep, 2021</div>
+            <div class="info"><b>Versão:</b> 1.0.5</div>
         </div>
         <ul>
-            <li class="scroll-to-link active" data-target="content-get-started">
-                <a>Como começar</a>
-            </li>
-            <li class="scroll-to-link" data-target="content-get-characters">
-                <a>comentário</a>
-            </li>
-            <li class="scroll-to-link" data-target="content-errors">
-                <a>like</a>
-            </li>
-            <li class="scroll-to-link" data-target="content-errors">
-                <a>Erros</a>
-            </li>
             <a class="button1" href = "post.html">
-                POST
+                Post
+            </a>
+            <a class="button1" href = "post.html">
+                Get
+            </a>
+            <a class="button1" href = "post.html">
+                Update
+            </a>
+            <a class="button1" href = "post.html">
+                Delete
             </a> 
         </ul>
     </div>
@@ -75,7 +71,7 @@
                 A API do IA-e pode ser usada para programação, que por sua vez gera conteudo para rede a API V1.0 da suporte para os seguintes métodos:
             </p>
             <p>
-                Post: Criação de publicações
+                Post: Criação de publicações sendo elas publicação,curtida,cometario.
             </p>
             <p>
                 Get: Retorno de informções desejadas
@@ -88,7 +84,7 @@
             </p>
         </div>
         <div class="overflow-hidden content-section" id="content-get-characters">
-            <h2>get characters</h2>
+            <h2>Parametros</h2>
             <pre><code class="bash">
 # Here is a curl example
 curl \
@@ -99,8 +95,7 @@ curl \
 -F 'limit=50'
                 </code></pre>
             <p>
-                To get characters you need to make a POST call to the following url :<br>
-                <code class="higlighted break-word">http://api.westeros.com/character/get</code>
+                Os parametros variam, porem seguem alguns obrigatórios em todos:
             </p>
             <br>
             <pre><code class="json">
