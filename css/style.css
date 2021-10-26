@@ -170,6 +170,35 @@ pre{
 .content-menu ul li.active a{
     color: #00a8e3;
 }
+button-style {
+    position: relative;
+    text-align: center;
+}
+
+buttton.button-style {
+    text-align: center;
+}
+
+a.button-style {
+    text-decoration: none;
+    color: #777a7a;
+    padding: 12px 13.25%;
+    display: inline-block;
+    margin: 0;
+}
+
+a.button-style:hover a, .button-style.active a {
+    color: #00a8e3;
+}
+
+a.button-style:hover, .button-style.active a {
+    background-color: #dcdee9;
+    display: block;
+    text-transform: capitalize;
+    letter-spacing: 0.025em;
+    line-height: 1.1;
+    padding: 12px 13.25%;
+}
 @media (hover: none) {
     .content-menu ul li:not(.active):hover {
         background-color: inherit;
