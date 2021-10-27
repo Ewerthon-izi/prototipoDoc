@@ -178,7 +178,7 @@ a.button1{
     text-decoration: none;
     color: #777a7a;
     padding: 12px 13.25%;
-    display: inline-block;
+    display: -webkit-box;
     margin: 0;
 }
 
