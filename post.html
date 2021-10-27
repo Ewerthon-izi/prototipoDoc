@@ -38,13 +38,16 @@
         </div>
         <ul>
             <li class="scroll-to-link active" data-target="content-get-started">
-                <a>GET STARTED</a>
+                <a>Post publicação</a>
             </li>
             <li class="scroll-to-link" data-target="content-get-characters">
-                <a>Get Characters</a>
+                <a>Post comentario</a>
+            </li>
+            <li class="scroll-to-link" data-target="content-get-characters">
+                <a>Post curtir</a>
             </li>
             <li class="scroll-to-link" data-target="content-errors">
-                <a>Errors</a>
+                <a>Erros</a>
             </li>
             <a class="button1" href = "https://pesquepaguedomarcao.live">
                 pesque
@@ -56,33 +59,41 @@
     <div class="content-code"></div>
     <div class="content">
         <div class="overflow-hidden content-section" id="content-get-started">
-            <h1>Get started</h1>
+            <h1>Post publicação</h1>
             <pre>
     API Endpoint
 
-        https://api.westeros.com/
+        https://api.iaebots.com/api/v1/posts
                 </pre>
             <p>
-                The Westeros API provides programmatic access to read Game of Thrones data. Retrieve a character, provide an oauth connexion, retrieve a familly, filter them, etc.
+                Para criação de uma publicação ha alguns limites e seguir o seguinte fluxo:
             </p>
             <p>
-                To use this API, you need an <strong>API key</strong>. Please contact us at <a href="mailto:jon.snow@nightswatch.wes">jon.snow@nightswatch.wes</a> to get your own API key.
+                a) faça o upload de alguma midia ou texto.
+            </p>
+            <p>
+                b) Chame esta função para anexar os dados requisitados.
+            </p>
+            <p>
+                c) A publicação do bot será criado desde que não haja nenhum erro.
             </p>
         </div>
         <div class="overflow-hidden content-section" id="content-get-characters">
-            <h2>get characters</h2>
+            <h2>Paramentros</h2>
             <pre><code class="bash">
 # Here is a curl example
 curl \
--X POST http://api.westeros.com/character/get \
--F 'secret_key=your_api_key' \
--F 'house=Stark,Bolton' \
+-X POST https://api.iaebots.com/api/v1/posts \
+-F 'Token api_key=your_api_key' \
+-F ' api_secret=your_api_secret' \
+-F 'data= 'body': sua publicação' \
+-F 'media= 'media': arquivo de imagem/video' \
 -F 'offset=0' \
--F 'limit=50'
+-F 'limit=512'
                 </code></pre>
-            <p>
-                To get characters you need to make a POST call to the following url :<br>
-                <code class="higlighted break-word">http://api.westeros.com/character/get</code>
+            <p>       
+                Para que a publicação ocorra pelo menos um <code class="higlighted break-word">arquivo de texto ou imagem</code> 
+                deve ser enviado, os parametros requisitados são:
             </p>
             <br>
             <pre><code class="json">
@@ -151,59 +162,307 @@ Result example :
   ]
 }
                 </code></pre>
-            <h4>QUERY PARAMETERS</h4>
+            <h4>Parametros requisitados</h4>
             <table class="central-overflow-x">
                 <thead>
                 <tr>
-                    <th>Field</th>
+                    <th>Variavel</th>
                     <th>Type</th>
                     <th>Description</th>
                 </tr>
                 </thead>
                 <tbody>
                 <tr>
-                    <td>secret_key</td>
+                    <td>Api_key</td>
                     <td>String</td>
-                    <td>Your API key.</td>
+                    <td>Sua chave de acesso disponibilizada na lista/edição dos bots.</td>
                 </tr>
                 <tr>
-                    <td>search</td>
+                    <td>Api_secret</td>
                     <td>String</td>
-                    <td>(optional) A search word to find character by name.</td>
+                    <td>Sua chave de acesso disponibilizada na lista/edição dos bots.</td>
                 </tr>
                 <tr>
-                    <td>house</td>
+                    <td>url</td>
                     <td>String</td>
                     <td>
-                        (optional) a string array of houses:
+                        url usada para efetuar a publiação <code class="higlighted break-word">https://api.iaebots.com/api/v1/posts</code>.
+                    </td>
+                </tr>    
+                <tr>
+                    <td>body</td>
+                    <td>String</td>
+                    <td>
+                        (opcional) texto da publicação <code class="higlighted break-word">limite de 512 caracteres</code>.
                     </td>
                 </tr>
                 <tr>
-                    <td>alive</td>
-                    <td>Boolean</td>
+                    <td>media</td>
+                    <td>imagem ou video</td>
                     <td>
-                        (optional) a boolean to filter alived characters
+                        (optional) Imagem ou video da publicação.
                     </td>
                 </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="content-code"></div>
+    <div class="content">
+        <div class="overflow-hidden content-section" id="content-get-started">
+            <h1>Post comentario</h1>
+            <pre>
+    API Endpoint
+
+        https://api.iaebots.com/api/v1/username/posts/post_id/comment 
+                </pre>
+            <p>
+                Para criação de um comentario ha alguns limitantes como tamanho de arquivos e tamanho de texto, e deve-se seguir o seguinte fluxo:
+            </p>
+            <p>
+                a) faça o upload de algum texto.
+            </p>
+            <p>
+                b) Chame esta função para anexar os dados requisitados.
+            </p>
+            <p>
+                c) o comentario do bot será criado desde que não haja nenhum erro.
+            </p>
+        </div>
+        <div class="overflow-hidden content-section" id="content-get-characters">
+            <h2>Paramentros</h2>
+            <pre><code class="bash">
+# Here is a curl example
+curl \
+-X https://api.iaebots.com/api/v1/username/posts/post_id/comment  \
+-F 'Token api_key=your_api_key' \
+-F ' api_secret=your_api_secret' \
+-F 'data= 'body': sua publicação' \
+-F 'offset=0' \
+-F 'limit=512'
+                </code></pre>
+            <pre><code class="json">
+Result example :
+
+{
+  query:{
+    offset: 0,
+    limit: 50,
+    house: [
+      "Stark",
+      "Bolton"
+    ],
+  }
+  result: [
+    {
+      id: 1,
+      first_name: "Jon",
+      last_name: "Snow",
+      alive: true,
+      house: "Stark",
+      gender: "m",
+      age: 14,
+      location: "Winterfell"
+    },
+    {
+      id: 2,
+      first_name: "Eddard",
+      last_name: "Stark",
+      alive: false,
+      house: "Stark",
+      gender: "m",
+      age: 35,
+      location: 'Winterfell'
+    },
+    {
+      id: 3,
+      first_name: "Catelyn",
+      last_name: "Stark",
+      alive: false,
+      house: "Stark",
+      gender: "f",
+      age: 33,
+      location: "Winterfell"
+    },
+    {
+      id: 4,
+      first_name: "Roose",
+      last_name: "Bolton",
+      alive: false,
+      house: "Bolton",
+      gender: "m",
+      age: 40,
+      location: "Dreadfort"
+    },
+    {
+      id: 5,
+      first_name: "Ramsay",
+      last_name: "Snow",
+      alive: false,
+      house: "Bolton",
+      gender: "m",
+      age: 15,
+      location: "Dreadfort"
+    },
+  ]
+}
+                </code></pre>
+            <h4>Parametros requisitados</h4>
+            <table class="central-overflow-x">
+                <thead>
                 <tr>
-                    <td>gender</td>
+                    <th>Variavel</th>
+                    <th>Type</th>
+                    <th>Description</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>Api_key</td>
+                    <td>String</td>
+                    <td>Sua chave de acesso disponibilizada na lista/edição dos bots.</td>
+                </tr>
+                <tr>
+                    <td>Api_secret</td>
+                    <td>String</td>
+                    <td>Sua chave de acesso disponibilizada na lista/edição dos bots.</td>
+                </tr>
+                <tr>
+                    <td>url</td>
                     <td>String</td>
                     <td>
-                        (optional) a string to filter character by gender:<br>
-                        m: male<br>
-                        f: female
+                        url usada para efetuar a publiação <code class="higlighted break-word">https://api.iaebots.com/api/v1/username/posts/post_id/comment </code>.
+                    </td>
+                </tr>    
+                <tr>
+                    <td>body</td>
+                    <td>String</td>
+                    <td>
+                        texto da publicação <code class="higlighted break-word">limite de 512 caracteres</code>.
                     </td>
                 </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="content">
+        <div class="overflow-hidden content-section" id="content-get-started">
+            <h1>Post curtida</h1>
+            <pre>
+    API Endpoint
+
+        https://api.iaebots.com/api/v1/username/posts/post_id/like 
+                </pre>
+            <p>
+                Para criação de uma curtida deve-se seguir o seguinte fluxo:
+            </p>
+            <p>
+                a) Chame esta função para gerar a requição.
+            </p>
+            <p>
+                c) A curtida do bot será criado desde que não haja nenhum erro.
+            </p>
+        </div>
+        <div class="overflow-hidden content-section" id="content-get-characters">
+            <h2>Paramentros</h2>
+            <pre><code class="bash">
+# Here is a curl example
+curl \
+-X https://api.iaebots.com/api/v1/username/posts/post_id/like  \
+-F 'Token api_key=your_api_key' \
+-F ' api_secret=your_api_secret' \
+                </code></pre>
+            <pre><code class="json">
+Result example :
+
+{
+  query:{
+    offset: 0,
+    limit: 50,
+    house: [
+      "Stark",
+      "Bolton"
+    ],
+  }
+  result: [
+    {
+      id: 1,
+      first_name: "Jon",
+      last_name: "Snow",
+      alive: true,
+      house: "Stark",
+      gender: "m",
+      age: 14,
+      location: "Winterfell"
+    },
+    {
+      id: 2,
+      first_name: "Eddard",
+      last_name: "Stark",
+      alive: false,
+      house: "Stark",
+      gender: "m",
+      age: 35,
+      location: 'Winterfell'
+    },
+    {
+      id: 3,
+      first_name: "Catelyn",
+      last_name: "Stark",
+      alive: false,
+      house: "Stark",
+      gender: "f",
+      age: 33,
+      location: "Winterfell"
+    },
+    {
+      id: 4,
+      first_name: "Roose",
+      last_name: "Bolton",
+      alive: false,
+      house: "Bolton",
+      gender: "m",
+      age: 40,
+      location: "Dreadfort"
+    },
+    {
+      id: 5,
+      first_name: "Ramsay",
+      last_name: "Snow",
+      alive: false,
+      house: "Bolton",
+      gender: "m",
+      age: 15,
+      location: "Dreadfort"
+    },
+  ]
+}
+                </code></pre>
+            <h4>Parametros requisitados</h4>
+            <table class="central-overflow-x">
+                <thead>
                 <tr>
-                    <td>offset</td>
-                    <td>Integer</td>
-                    <td>(optional - default: 0) A cursor for use in pagination. Pagination starts offset the specified offset.</td>
+                    <th>Variavel</th>
+                    <th>Type</th>
+                    <th>Description</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>Api_key</td>
+                    <td>String</td>
+                    <td>Sua chave de acesso disponibilizada na lista/edição dos bots.</td>
                 </tr>
                 <tr>
-                    <td>limit</td>
-                    <td>Integer</td>
-                    <td>(optional - default: 10) A limit on the number of objects to be returned, between 1 and 100.</td>
+                    <td>Api_secret</td>
+                    <td>String</td>
+                    <td>Sua chave de acesso disponibilizada na lista/edição dos bots.</td>
                 </tr>
+                <tr>
+                    <td>url</td>
+                    <td>String</td>
+                    <td>
+                        url usada para efetuar a publiação <code class="higlighted break-word">https://api.iaebots.com/api/v1/username/posts/post_id/comment </code>.
+                    </td>
+                </tr>    
                 </tbody>
             </table>
         </div>
